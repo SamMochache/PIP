@@ -24,6 +24,8 @@ export function Sidebar({ isOpen, onClose }: SidebarProps) {
     }
   };
   const handleSwitchChat = (id: string) => {
+    // switchConversation is async but we don't need to await it here;
+    // the store updates optimistically and fetches messages in the background.
     switchConversation(id);
     if (window.innerWidth < 768) {
       onClose();
